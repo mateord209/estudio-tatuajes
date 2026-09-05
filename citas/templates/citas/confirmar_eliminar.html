@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar cita - Estudio de Tatuajes</title>
+</head>
+<body>
+    <h1>¿Eliminar esta cita?</h1>
+
+    <p>
+        <strong>Cliente:</strong> {{ cita.nombre_cliente }}<br>
+        <strong>Tatuador:</strong> {{ cita.nombre_tatuador }}<br>
+        <strong>Fecha:</strong> {{ cita.fecha }} {{ cita.hora }}
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+
+    <p><a href="{% url 'lista_citas' %}">Cancelar</a></p>
+</body>
+</html>
