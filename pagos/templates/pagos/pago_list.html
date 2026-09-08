@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Pagos{% endblock %}
+{% block content %}
+<h1>Pagos</h1>
+<a href="{% url 'pagos:pago_create' %}" class="btn btn-primary mb-3">Nuevo pago</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Tatuador</th>
+            <th>Servicio</th>
+            <th>Monto</th>
+            <th>Método</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pago in pagos %}
+        <tr>
+            <td>{{ pago.cliente }}</td>
+            <td>{{ pago.tatuador }}</td>
+            <td>{{ pago.servicio }}</td>
+            <td>${{ pago.monto }}</td>
+            <td>{{ pago.get_metodo_pago_display }}</td>
+            <td>{{ pago.get_estado_display }}</td>
+            <td>{{ pago.fecha_pago|date:"d/m/Y H:i" }}</td>
+            <td>
+                <a href="{% url 'pagos:pago_detail' pago.pk %}" class="btn btn-sm btn-info">Ver</a>
+                <a href="{% url 'pagos:pago_update' pago.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'pagos:pago_delete' pago.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="8">No hay pagos registrados.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if is_paginated %}
+<nav>
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+        {% endif %}
+        <li class="page-item disabled"><span class="page-link">{{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span></li>
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
