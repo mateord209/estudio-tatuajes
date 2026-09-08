@@ -20,9 +20,14 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 <<<<<<< HEAD
+    path('citas/', include('citas.urls')),
+]
+=======
+<<<<<<< HEAD
     path('pagos/', include('pagos.urls')),
 ]
 =======
     path('tatuadores/', include('tatuadores.urls')),
 ]
+>>>>>>> origin/develop
 >>>>>>> origin/develop

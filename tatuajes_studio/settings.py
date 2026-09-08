@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 <<<<<<< HEAD
+    'citas',
+=======
+<<<<<<< HEAD
     'pagos',
 =======
     'tatuadores',
+>>>>>>> origin/develop
 >>>>>>> origin/develop
 ]
 
