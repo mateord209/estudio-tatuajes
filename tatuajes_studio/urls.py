@@ -20,6 +20,10 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 <<<<<<< HEAD
+    path('clientes/', include('clientes.urls')),
+]
+=======
+<<<<<<< HEAD
     path('citas/', include('citas.urls')),
 ]
 =======
@@ -29,5 +33,6 @@ urlpatterns = [
 =======
     path('tatuadores/', include('tatuadores.urls')),
 ]
+>>>>>>> origin/develop
 >>>>>>> origin/develop
 >>>>>>> origin/develop
