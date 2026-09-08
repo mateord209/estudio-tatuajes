@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar tatuador - Estudio de Tatuajes</title>
+</head>
+<body>
+    <h1>¿Eliminar este tatuador?</h1>
+
+    <p>
+        <strong>Nombre:</strong> {{ tatuador.nombre }}<br>
+        <strong>Especialidad:</strong> {{ tatuador.get_especialidad_display }}
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+
+    <p><a href="{% url 'lista_tatuadores' %}">Cancelar</a></p>
+</body>
+</html>
