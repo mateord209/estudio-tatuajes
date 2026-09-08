@@ -37,24 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'disenos',
-    
-=======
-<<<<<<< HEAD
-    'clientes',
-=======
-<<<<<<< HEAD
     'citas',
-=======
-<<<<<<< HEAD
+    'clientes',
+    'disenos',
     'pagos',
-=======
     'tatuadores',
->>>>>>> origin/develop
->>>>>>> origin/develop
->>>>>>> origin/develop
->>>>>>> origin/develop
 ]
 
 MIDDLEWARE = [
