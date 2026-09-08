@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 <<<<<<< HEAD
+    'disenos',
+    
+=======
+<<<<<<< HEAD
     'clientes',
 =======
 <<<<<<< HEAD
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'pagos',
 =======
     'tatuadores',
+>>>>>>> origin/develop
 >>>>>>> origin/develop
 >>>>>>> origin/develop
 >>>>>>> origin/develop

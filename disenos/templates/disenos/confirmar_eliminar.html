@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar diseño - Estudio de Tatuajes</title>
+</head>
+<body>
+    <h1>¿Eliminar este diseño?</h1>
+
+    <p>
+        <strong>Nombre:</strong> {{ diseno.nombre }}<br>
+        <strong>Estilo:</strong> {{ diseno.get_estilo_display }}<br>
+        <strong>Precio:</strong> ${{ diseno.precio }}
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+
+    <p><a href="{% url 'lista_disenos' %}">Cancelar</a></p>
+</body>
+</html>
