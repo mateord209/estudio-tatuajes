@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tatuadores - Estudio de Tatuajes</title>
+</head>
+<body>
+    <h1>Tatuadores</h1>
+    <a href="{% url 'crear_tatuador' %}">+ Nuevo tatuador</a>
+
+    <table border="1" cellpadding="8" style="margin-top: 20px; border-collapse: collapse;">
+        <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Teléfono</th>
+            <th>Años exp.</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+        {% for tatuador in tatuadores %}
+        <tr>
+            <td>{{ tatuador.nombre }}</td>
+            <td>{{ tatuador.get_especialidad_display }}</td>
+            <td>{{ tatuador.telefono }}</td>
+            <td>{{ tatuador.anios_experiencia }}</td>
+            <td>{{ tatuador.activo|yesno:"Sí,No" }}</td>
+            <td>
+                <a href="{% url 'editar_tatuador' tatuador.pk %}">Editar</a> |
+                <a href="{% url 'eliminar_tatuador' tatuador.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay tatuadores registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
