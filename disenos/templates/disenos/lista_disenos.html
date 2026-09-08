@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Diseños - Estudio de Tatuajes</title>
+</head>
+<body>
+    <h1>Diseños</h1>
+    <a href="{% url 'crear_diseno' %}">+ Nuevo diseño</a>
+
+    <table border="1" cellpadding="8" style="margin-top: 20px; border-collapse: collapse;">
+        <tr>
+            <th>Nombre</th>
+            <th>Tatuador</th>
+            <th>Estilo</th>
+            <th>Precio</th>
+            <th>Horas est.</th>
+            <th>Acciones</th>
+        </tr>
+        {% for diseno in disenos %}
+        <tr>
+            <td>{{ diseno.nombre }}</td>
+            <td>{{ diseno.tatuador_nombre }}</td>
+            <td>{{ diseno.get_estilo_display }}</td>
+            <td>${{ diseno.precio }}</td>
+            <td>{{ diseno.tiempo_estimado_horas }}</td>
+            <td>
+                <a href="{% url 'editar_diseno' diseno.pk %}">Editar</a> |
+                <a href="{% url 'eliminar_diseno' diseno.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay diseños registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
