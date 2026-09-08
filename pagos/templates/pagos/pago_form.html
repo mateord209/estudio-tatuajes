@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{% if form.instance.pk %}Editar{% else %}Nuevo{% endif %} pago{% endblock %}
+{% block content %}
+<h1>{% if form.instance.pk %}Editar pago{% else %}Nuevo pago{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+        <label class="form-label">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+            <div class="text-danger">{{ field.errors }}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'pagos:pago_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

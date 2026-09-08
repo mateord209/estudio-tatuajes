@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Detalle del pago{% endblock %}
+{% block content %}
+<h1>Detalle del pago</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Cliente:</strong> {{ pago.cliente }}</li>
+    <li class="list-group-item"><strong>Tatuador:</strong> {{ pago.tatuador }}</li>
+    <li class="list-group-item"><strong>Servicio:</strong> {{ pago.servicio }}</li>
+    <li class="list-group-item"><strong>Monto:</strong> ${{ pago.monto }}</li>
+    <li class="list-group-item"><strong>Método de pago:</strong> {{ pago.get_metodo_pago_display }}</li>
+    <li class="list-group-item"><strong>Estado:</strong> {{ pago.get_estado_display }}</li>
+    <li class="list-group-item"><strong>Fecha:</strong> {{ pago.fecha_pago|date:"d/m/Y H:i" }}</li>
+    <li class="list-group-item"><strong>Observaciones:</strong> {{ pago.observaciones|default:"—" }}</li>
+</ul>
+<a href="{% url 'pagos:pago_update' pago.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'pagos:pago_list' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}
